@@ -3,7 +3,7 @@
 
 int main(void) {
     long long n, k;
-    scanf("%d%d", &n, &k);
+    scanf("%lld%lld", &n, &k);
     int **board = calloc(n, sizeof(int));
     int colour_count = n * n / k;
     int **colours = calloc(k, sizeof(int));
@@ -16,12 +16,17 @@ int main(void) {
     }
     int index = 0;
     for(int i = 0; i < n; i++) {
+        index = i % 2;
         for(int j = 0; j < n; j++) {
             if(index >= k) {
                 index = 0;
             }
             board[i][j] = colours[index][0];
+            colours[index][1]++;
+            printf("%d ", board[i][j]);
+            index++;
         }
+        putchar(10);
     }
 
     for(int i = 0; i < n; i++) {
