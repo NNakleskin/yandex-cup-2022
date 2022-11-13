@@ -5,16 +5,16 @@
 int main(void) {
     long long n = 0, k = 0;
     scanf("%lld%lld", &n, &k);
-    int **board = malloc(n * sizeof(int));
+    int **board = calloc(n, sizeof(int*));
     long long colour_count = n * n / k;
-    int **colours = malloc(k * sizeof(int));
+    int **colours = calloc(k, sizeof(int*));
     for(int i = 0; i < k; i++) {
-        colours[i] = malloc(3 * sizeof(int));
+        colours[i] = calloc(3, sizeof(int));
         colours[i][0] = i + 1;
         colours[i][1] = 0;
     }
     for(int i = 0; i < n; i++) {
-        board[i] = malloc(n * sizeof(int));
+        board[i] = calloc(n, sizeof(int));
     }
     int index = 0;
 
